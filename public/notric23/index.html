@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b20">
+  <meta name="description" content="A little birthday surprise made just for Notric23.">
+  <meta property="og:title" content="A little surprise for Notric23 ✦">
+  <meta property="og:description" content="Someone made you a birthday page. Open it.">
+  <title>For Notric23 ✦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#090b20;--ink:#f7f5ff;--muted:#aaa9c7;--pink:#ff80bd;--violet:#a78bfa;--blue:#80caff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse at 18% 20%,#33205c88,transparent 38%),radial-gradient(ellipse at 82% 60%,#172f6580,transparent 42%),linear-gradient(145deg,#090b20,#11102b 52%,#080d20)}
+    #stars{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none}
+    .grain{position:fixed;inset:0;pointer-events:none;z-index:5;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E")}
+    .topbar{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:25px clamp(20px,5vw,68px);font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#c8c4e8}
+    .brand{display:flex;align-items:center;gap:10px}.dot{width:7px;height:7px;border-radius:50%;background:#ff80bd;box-shadow:0 0 15px #ff80bd}
+    .tag{border:1px solid #ffffff22;border-radius:999px;padding:9px 13px;background:#ffffff06;backdrop-filter:blur(12px)}
+    main{width:100%;overflow:hidden}
+    .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:115px 22px 65px;position:relative}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:#d8c8ff;font-size:12px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:27px;animation:rise .9s both}
+    .eyebrow:before,.eyebrow:after{content:"";width:24px;height:1px;background:linear-gradient(90deg,transparent,#b5a0ff)}
+    .eyebrow:after{transform:scaleX(-1)}
+    h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(3.4rem,10vw,8.7rem);line-height:.91;letter-spacing:-.085em;font-weight:600;margin:0;animation:rise .9s .08s both}
+    h1 .line2{display:block;background:linear-gradient(100deg,#fff 5%,#ffc2e1 38%,#b7a4ff 70%,#a5dcff);background-clip:text;-webkit-background-clip:text;color:transparent;padding:0 .06em .13em}
+    .sub{max-width:440px;color:#c1bfd9;line-height:1.8;font-size:clamp(14px,2vw,17px);margin:26px auto 0;animation:rise .9s .16s both}
+    .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px;animation:rise .9s .24s both}
+    button{font:inherit;cursor:pointer;border:0}
+    .primary{color:#171126;background:linear-gradient(105deg,#ffd1e9,#cbbcff 60%,#b3e3ff);font-weight:700;border-radius:999px;padding:15px 22px;box-shadow:0 8px 35px #b49aff26;transition:transform .2s,box-shadow .2s}
+    .primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px #b49aff44}
+    .secondary{color:#eeebff;background:#ffffff08;border:1px solid #ffffff20;border-radius:999px;padding:14px 19px;transition:background .2s}
+    .secondary:hover{background:#ffffff12}
+    .scroll-hint{position:absolute;bottom:27px;color:#8d8baa;font-size:10px;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+    .scroll-hint:after{content:"";height:28px;width:1px;background:linear-gradient(#bdaaff,transparent)}
+    .orb{position:absolute;border-radius:50%;filter:blur(1px);pointer-events:none;opacity:.7}
+    .orb.one{width:180px;height:180px;top:22%;left:-110px;background:radial-gradient(circle,#a875ff38,transparent 70%)}
+    .orb.two{width:240px;height:240px;right:-150px;bottom:16%;background:radial-gradient(circle,#ff80bd25,transparent 70%)}
+    .section{padding:95px 22px;max-width:1000px;margin:0 auto}
+    .section-label{color:#bba8ff;text-transform:uppercase;letter-spacing:.2em;font-size:11px;margin-bottom:14px}
+    h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-.055em;line-height:1.05;margin:0}
+    .intro{color:var(--muted);line-height:1.8;max-width:510px;margin:16px 0 0}
+    .note-card{margin-top:35px;padding:clamp(25px,5vw,48px);border-radius:28px;border:1px solid #ffffff18;background:linear-gradient(130deg,#ffffff0c,#ffffff04);box-shadow:0 25px 90px #00000020;position:relative;overflow:hidden}
+    .note-card:after{content:"✦";position:absolute;right:30px;top:15px;font-size:80px;color:#c1aaff10}
+    .note-card p{font-size:clamp(16px,2.5vw,20px);line-height:1.9;color:#e4e1f5;margin:0;max-width:720px}
+    .signature{margin-top:24px!important;color:#b8a9f4!important;font-size:14px!important}
+    .wish-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:32px}
+    .wish{padding:23px 20px;border-radius:20px;background:#ffffff07;border:1px solid #ffffff12;min-height:150px;transition:transform .25s,border-color .25s}
+    .wish:hover{transform:translateY(-5px);border-color:#c0a5ff66}
+    .wish-icon{font-size:23px;margin-bottom:18px;display:block}
+    .wish strong{font-family:'Space Grotesk',sans-serif;font-size:16px}
+    .wish p{color:#aaa8c5;font-size:13px;line-height:1.65;margin:8px 0 0}
+    .finale{text-align:center;padding:95px 22px 115px}
+    .finale .big-star{font-size:38px;color:#ffd0e8;text-shadow:0 0 40px #ff80bd77;display:block;margin-bottom:22px}
+    .finale p{color:#aaa8c5;line-height:1.8;max-width:430px;margin:17px auto 25px}
+    footer{padding:23px;text-align:center;color:#666580;font-size:11px;letter-spacing:.05em;border-top:1px solid #ffffff0b}
+    .modal{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:20px;background:#050614d9;backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+    .modal.open{opacity:1;visibility:visible}
+    .modal-box{width:min(520px,100%);text-align:center;padding:clamp(28px,6vw,48px);border:1px solid #ffffff25;border-radius:28px;background:radial-gradient(ellipse at top,#332452,#111126 65%);box-shadow:0 25px 100px #0008;transform:translateY(12px) scale(.98);transition:transform .3s}
+    .modal.open .modal-box{transform:translateY(0) scale(1)}
+    .modal-box .gift{font-size:45px;display:block;margin-bottom:20px}
+    .modal-box h2{font-size:clamp(2rem,7vw,3.4rem)}
+    .modal-box p{color:#c4c0dd;line-height:1.8;margin:17px 0 25px}
+    .close{display:block;margin:18px auto 0;background:transparent;color:#9d9ab8;padding:8px 14px;font-size:13px}
+    .confetti{position:fixed;z-index:9;top:-15px;width:7px;height:12px;pointer-events:none;animation:fall 3.5s linear forwards}
+    @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(720deg);opacity:.2}}
+    @media(max-width:650px){.topbar{padding:19px 18px}.topbar .tag{font-size:9px}.hero{padding-top:100px}.wish-grid{grid-template-columns:1fr}.wish{min-height:auto;padding:20px}.wish-icon{margin-bottom:10px}.section{padding-top:72px;padding-bottom:72px}.scroll-hint{bottom:18px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="brand"><span class="dot"></span><span>A little something</span></div>
+    <span class="tag">MADE JUST FOR YOU · 01</span>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="orb one"></div><div class="orb two"></div>
+      <div class="eyebrow">today is your day</div>
+      <h1>HAPPY<br><span class="line2">BIRTHDAY.</span></h1>
+      <p class="sub">Hey, Notric23. The universe did its thing and made today a little more special. This one's for you. ✦</p>
+      <div class="hero-actions">
+        <button class="primary" id="openSurprise">Open your surprise <span aria-hidden="true">↗</span></button>
+        <button class="secondary" id="celebrate">Make some noise ✨</button>
+      </div>
+      <div class="scroll-hint">there's more below</div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">01 / a small message</div>
+      <h2>Another year.<br>More memories to make.</h2>
+      <p class="intro">Not every birthday needs a huge speech. Sometimes it's enough to remind someone that they're appreciated.</p>
+      <div class="note-card">
+        <p>Happy birthday, bro! 🎂 I hope this next chapter brings you loads of happiness, good health, unforgettable memories, and a whole lot of wins. Keep being yourself, keep chasing the things you care about, and never forget how far you've come. Here's to more laughs, more adventures, and stories we'll be talking about for years. Hope today treats you like the legend you are.</p>
+        <p class="signature">— from your friend, Fireball ✦</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">02 / the wishlist</div>
+      <h2>Wishing you<br>the good stuff.</h2>
+      <div class="wish-grid">
+        <article class="wish"><span class="wish-icon">✧</span><strong>Big wins</strong><p>May the things you've been working for finally click into place.</p></article>
+        <article class="wish"><span class="wish-icon">☾</span><strong>Peace of mind</strong><p>More days that feel right, and fewer things to worry about.</p></article>
+        <article class="wish"><span class="wish-icon">∞</span><strong>Core memories</strong><p>New adventures, ridiculous laughs, and moments worth keeping.</p></article>
+      </div>
+    </section>
+
+    <section class="finale">
+      <span class="big-star">✦</span>
+      <div class="section-label">03 / one last thing</div>
+      <h2>Make this year<br>your favourite yet.</h2>
+      <p>Enjoy your day, eat some cake, take the W, and make a wish. You only get this birthday once. 🎉</p>
+      <button class="primary" id="finalCelebrate">One more celebration ✨</button>
+    </section>
+  </main>
+  <footer>CRAFTED WITH ✦ BY FIREBALL · HAPPY BIRTHDAY, NOTRIC23</footer>
+
+  <div class="modal" id="surpriseModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <span class="gift">🎁</span>
+      <div class="section-label">SURPRISE UNLOCKED</div>
+      <h2 id="modalTitle">It's your day,<br>Notric23!</h2>
+      <p>Whatever this year has waiting for you, I hope it's full of good people, good moments, and reasons to be proud of yourself. Thanks for being you. Happy birthday, legend. 🥳</p>
+      <button class="primary" id="modalCelebrate">LET'S GOOO ✨</button>
+      <button class="close" id="closeModal">I'll try not to cry (close)</button>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const canvas = document.getElementById('stars');
+      const ctx = canvas.getContext('2d');
+      let w, h, stars = [], bursts = [];
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = window.innerWidth; h = window.innerHeight;
+        canvas.width = w * dpr; canvas.height = h * dpr;
+        canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        stars = Array.from({length: Math.min(150, Math.floor(w * h / 8000))}, () => ({
+          x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.4 + .2,
+          a: Math.random() * .65 + .15, speed: Math.random() * .012 + .003, phase: Math.random() * 7
+        }));
+      }
+      function frame(t) {
+        ctx.clearRect(0, 0, w, h);
+        for (const s of stars) {
+          ctx.globalAlpha = s.a * (.72 + Math.sin(t * s.speed + s.phase) * .28);
+          ctx.fillStyle = '#e8dcff'; ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        bursts = bursts.filter(b => b.life > 0);
+        for (const b of bursts) {
+          for (const p of b.parts) {
+            p.x += p.vx; p.y += p.vy; p.vy += .035; p.vx *= .992; p.life--;
+            ctx.globalAlpha = Math.max(0, p.life / 75);
+            ctx.fillStyle = p.color; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+          }
+          b.life--;
+        }
+        ctx.globalAlpha = 1;
+        if (!reduced) requestAnimationFrame(frame);
+      }
+      function burst(x = Math.random() * w, y = h * (.15 + Math.random() * .45)) {
+        const colors = ['#ff8fc7', '#c0a4ff', '#94d9ff', '#ffe5a3', '#ffffff'];
+        const parts = Array.from({length: 65}, () => {
+          const a = Math.random() * Math.PI * 2, speed = Math.random() * 3.8 + .7;
+          return {x,y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,life:Math.random()*35+40,size:Math.random()*2+0.7,color:colors[Math.floor(Math.random()*colors.length)]};
+        });
+        bursts.push({parts,life:80});
+      }
+      resize(); if (reduced) frame(0); else requestAnimationFrame(frame);
+      window.addEventListener('resize', resize);
+      const modal = document.getElementById('surpriseModal');
+      function openModal() { modal.classList.add('open'); burst(w/2,h/2); }
+      function closeModal() { modal.classList.remove('open'); }
+      document.getElementById('openSurprise').addEventListener('click', openModal);
+      document.getElementById('closeModal').addEventListener('click', closeModal);
+      modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+      function celebrate() {
+        for (let i = 0; i < 5; i++) setTimeout(() => burst(Math.random()*w, h*(.15+Math.random()*.45)), i*150);
+        const colors = ['#ff8fc7','#c0a4ff','#94d9ff','#ffe5a3','#ffffff'];
+        for (let i=0;i<100;i++) {
+          const el=document.createElement('i'); el.className='confetti';
+          el.style.left=Math.random()*100+'vw'; el.style.background=colors[Math.floor(Math.random()*colors.length)];
+          el.style.borderRadius=Math.random()>.5?'50%':'2px'; el.style.setProperty('--drift',(Math.random()*220-110)+'px');
+          el.style.animationDelay=(Math.random()*.8)+'s'; el.style.animationDuration=(2.4+Math.random()*2)+'s';
+          document.body.appendChild(el); setTimeout(()=>el.remove(),5000);
+        }
+      }
+      document.getElementById('celebrate').addEventListener('click', celebrate);
+      document.getElementById('finalCelebrate').addEventListener('click', celebrate);
+      document.getElementById('modalCelebrate').addEventListener('click', () => { closeModal(); celebrate(); });
+    })();
+  </script>
+</body>
+</html>
