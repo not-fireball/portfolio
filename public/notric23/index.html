@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090b20">
-  <meta name="description" content="A little birthday surprise made just for Notric23.">
-  <meta property="og:title" content="A little surprise for Notric23 ✦">
+  <meta name="description" content="A birthday surprise for Notric23.">
+  <meta property="og:title" content="Happy Birthday, Notric23 ✦">
   <meta property="og:description" content="Someone made you a birthday page. Open it.">
   <title>For Notric23 ✦</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,19 +79,17 @@
   <canvas id="stars" aria-hidden="true"></canvas>
   <div class="grain" aria-hidden="true"></div>
   <header class="topbar">
-    <div class="brand"><span class="dot"></span><span>A little something</span></div>
-    <span class="tag">MADE JUST FOR YOU · 01</span>
+    <div class="brand"><span class="dot"></span><span>For Notric23</span></div>
+    <span class="tag">A BIRTHDAY SURPRISE · 01</span>
   </header>
   <main>
     <section class="hero">
       <div class="orb one"></div><div class="orb two"></div>
-      <div class="eyebrow">today is your day</div>
       <h1>HAPPY<br><span class="line2">BIRTHDAY.</span></h1>
       <p class="sub">Hey, Notric23. The universe did its thing and made today a little more special. This one's for you. ✦</p>
       <div class="countdown" aria-live="polite"><span class="countdot"></span><span id="countdownLabel">THE BIG MOMENT IN</span><strong id="countdownClock">03:31:00</strong></div>
       <div class="hero-actions">
         <button class="primary" id="openSurprise">Open your surprise <span aria-hidden="true">↗</span></button>
-        <button class="secondary" id="celebrate">Make some noise ✨</button>
       </div>
       <div class="scroll-hint">there's more below</div>
     </section>
@@ -121,7 +119,6 @@
       <div class="section-label">03 / one last thing</div>
       <h2>Make this year<br>your favourite yet.</h2>
       <p>Enjoy your day, eat some cake, take the W, and make a wish. You only get this birthday once. 🎉</p>
-      <button class="primary" id="finalCelebrate">One more celebration ✨</button>
     </section>
   </main>
   <footer>CRAFTED WITH ✦ BY FIREBALL · HAPPY BIRTHDAY, NOTRIC23</footer>
@@ -132,7 +129,6 @@
       <div class="section-label">SURPRISE UNLOCKED</div>
       <h2 id="modalTitle">It's your day,<br>Notric23!</h2>
       <p>Whatever this year has waiting for you, I hope it's full of good people, good moments, and reasons to be proud of yourself. Thanks for being you. Happy birthday, legend. 🥳</p>
-      <button class="primary" id="modalCelebrate">LET'S GOOO ✨</button>
       <button class="close" id="closeModal">I'll try not to cry (close)</button>
     </div>
   </div>
@@ -172,13 +168,13 @@
         ctx.globalAlpha = 1;
         if (!reduced) requestAnimationFrame(frame);
       }
-      function burst(x = Math.random() * w, y = h * (.15 + Math.random() * .45)) {
+      function burst(x = Math.random() * w, y = h * (.12 + Math.random() * .48)) {
         const colors = ['#ff8fc7', '#c0a4ff', '#94d9ff', '#ffe5a3', '#ffffff'];
-        const parts = Array.from({length: 65}, () => {
-          const a = Math.random() * Math.PI * 2, speed = Math.random() * 3.8 + .7;
-          return {x,y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,life:Math.random()*35+40,size:Math.random()*2+0.7,color:colors[Math.floor(Math.random()*colors.length)]};
+        const parts = Array.from({length: 24}, () => {
+          const a = Math.random() * Math.PI * 2, speed = Math.random() * 1.8 + .35;
+          return {x,y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,life:Math.random()*18+22,size:Math.random()*1.4+0.5,color:colors[Math.floor(Math.random()*colors.length)]};
         });
-        bursts.push({parts,life:80});
+        bursts.push({parts,life:42});
       }
       resize(); if (reduced) frame(0); else requestAnimationFrame(frame);
       window.addEventListener('resize', resize);
@@ -203,6 +199,7 @@
       const modal = document.getElementById('surpriseModal');
       function openModal() { modal.classList.add('open'); burst(w/2,h/2); }
       function closeModal() { modal.classList.remove('open'); }
+      if (!reduced) window.setInterval(() => burst(), 300);
       document.getElementById('openSurprise').addEventListener('click', openModal);
       document.getElementById('closeModal').addEventListener('click', closeModal);
       modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
@@ -218,9 +215,7 @@
           document.body.appendChild(el); setTimeout(()=>el.remove(),5000);
         }
       }
-      document.getElementById('celebrate').addEventListener('click', celebrate);
-      document.getElementById('finalCelebrate').addEventListener('click', celebrate);
-      document.getElementById('modalCelebrate').addEventListener('click', () => { closeModal(); celebrate(); });
+
     })();
   </script>
 </body>
