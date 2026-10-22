@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
+  --pat:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' fill='white' fill-opacity='.09'><circle cx='40' cy='50' r='26'/><rect x='150' y='30' width='46' height='46' rx='6' transform='rotate(14 173 53)'/><polygon points='270,30 300,90 240,90'/><circle cx='110' cy='170' r='14'/><polygon points='40,230 80,300 0,300'/><rect x='200' y='190' width='60' height='60' rx='8' transform='rotate(-18 230 220)'/><circle cx='290' cy='270' r='20'/><rect x='120' y='260' width='30' height='30' rx='5' transform='rotate(30 135 275)'/></svg>");
   --a:#6d28d9; --b:#db2777; --c:#f97316;
   --ink:#ffffff; --btn:#4c1d95; --btn-edge:#2e1065;
   box-sizing:border-box;
@@ -20,12 +21,12 @@ body{
   font-family:'Fredoka','Trebuchet MS',system-ui,sans-serif;
   color:var(--ink);
   background:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320' fill='white' fill-opacity='.09'><circle cx='40' cy='50' r='26'/><rect x='150' y='30' width='46' height='46' rx='6' transform='rotate(14 173 53)'/><polygon points='270,30 300,90 240,90'/><circle cx='110' cy='170' r='14'/><polygon points='40,230 80,300 0,300'/><rect x='200' y='190' width='60' height='60' rx='8' transform='rotate(-18 230 220)'/><circle cx='290' cy='270' r='20'/><rect x='120' y='260' width='30' height='30' rx='5' transform='rotate(30 135 275)'/></svg>"),
+    var(--pat),
     #000;
   background-attachment:fixed;
-  overflow:hidden;
+  overflow-x:hidden;
 }
-main{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;position:relative;z-index:2}
+main{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 24px 80px;position:relative;z-index:2}
 h1{font-size:clamp(2.6rem,10vw,6.5rem);line-height:.95;margin:0;font-weight:700;letter-spacing:-.01em;text-shadow:0 6px 24px rgba(46,16,101,.35)}
 .sub{font-size:clamp(1.1rem,3.2vw,1.7rem);margin:14px 0 0;font-weight:500;opacity:.95}
 .stage{margin:34px 0 0;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
@@ -48,18 +49,41 @@ button:focus-visible,.gift:focus-visible{outline:3px solid #fff;outline-offset:4
 .gift.open .lid{transform:translateY(-120px) rotate(-18deg);opacity:0}
 @keyframes wobble{0%,100%{transform:rotate(0)}10%{transform:rotate(-5deg)}20%{transform:rotate(5deg)}30%{transform:rotate(-3deg)}40%{transform:rotate(0)}}
 .hint{margin-top:18px;font-size:1.05rem;opacity:.9}
-.card{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.35);border-radius:22px;padding:26px 34px;max-width:520px;display:none;text-align:center;font-size:clamp(1.6rem,6vw,2.4rem);font-weight:600}
+.card{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.35);border-radius:22px;padding:26px 34px;max-width:520px;display:none;text-align:center;font-size:clamp(1.1rem,4vw,1.35rem);font-weight:500;line-height:1.55;text-align:left;max-width:560px}
+.card p{margin:0 0 14px}
+.card p:last-child{margin:0}
+.card .big{font-size:clamp(1.5rem,6vw,2rem);font-weight:700}
 .card.show{display:block;animation:pop .5s cubic-bezier(.3,1.5,.5,1)}
 footer{position:fixed;left:0;right:0;bottom:0;padding:14px 0 calc(14px + env(safe-area-inset-bottom,0px));text-align:center;font-size:1.1rem;font-weight:500;z-index:2;opacity:.9}
 @keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
 .actions{margin-top:22px;display:none}
 .actions.show{display:block}
+.hidden{display:none!important}
+#lock{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:var(--pat),#000;background-attachment:fixed}
+#lock h2{margin:0;font-size:clamp(2rem,8vw,4.5rem);line-height:1;font-weight:700}
+#lock .note{margin:14px 0 30px;font-size:clamp(1.05rem,3vw,1.4rem);font-weight:500;min-height:1.5em}
+.count{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.unit{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.35);border-radius:18px;padding:14px 10px;min-width:80px}
+.unit b{display:block;font-size:clamp(2rem,9vw,3.6rem);font-variant-numeric:tabular-nums;line-height:1.1}
+.unit span{font-size:.95rem;opacity:.85}
+.shake{animation:shake .4s}
+@keyframes shake{20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
 canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
 @media (prefers-reduced-motion:reduce){.gift{animation:none}.card.show{animation:none}}
 </style>
 </head>
 <body>
-<main>
+<div id="lock">
+  <h2 id="lockTitle">Almost time</h2>
+  <p class="note" id="lockNote">Something is waiting for you at midnight.</p>
+  <div class="count">
+    <div class="unit"><b id="d">0</b><span>days</span></div>
+    <div class="unit"><b id="h">00</b><span>hours</span></div>
+    <div class="unit"><b id="m">00</b><span>minutes</span></div>
+    <div class="unit"><b id="s">00</b><span>seconds</span></div>
+  </div>
+</div>
+<main id="main" class="hidden">
   <h1 id="title"></h1>
   <div class="stage">
     <button class="gift" id="gift" aria-label="Open your gift"><img src="ps99giftbag.png" alt="" onerror="this.parentNode.classList.add('fallback');this.remove()"><span class="box"></span><span class="lid"></span></button>
@@ -68,15 +92,41 @@ canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index
     <div class="actions" id="actions"><button id="again">more confetti!</button></div>
   </div>
 </main>
-<footer>from fireball :&gt;</footer>
+<footer id="foot" class="hidden">from fireball :&gt;</footer>
 <canvas id="fx"></canvas>
 <script>
 const NAME="Ric";
-const MESSAGE="from fireball :>";
+const TARGET=Date.parse("2026-10-23T00:00:00+04:00");
+const MESSAGE=[
+  ["Happy birthday, Ric!","big"],
+  ["Another year older and somehow still the one who makes everything better just by being around. I hope today is full of good food, good people, and zero responsibilities."],
+  ["Thanks for being such a great friend. You deserve every good thing coming your way this year, and I can't wait to see what you do with it."],
+  ["Now go enjoy your day. You've earned it."]
+];
 
 document.getElementById("title").innerHTML="Happy Birthday,<br>"+NAME+"!";
 const card=document.getElementById("card");
-card.textContent=MESSAGE;
+MESSAGE.forEach(([t,c])=>{const p=document.createElement("p");p.textContent=t;if(c)p.className=c;card.appendChild(p)});
+
+const lock=document.getElementById("lock"),main=document.getElementById("main"),foot=document.getElementById("foot");
+const locked=()=>Date.now()<TARGET;
+function reveal(){lock.classList.add("hidden");main.classList.remove("hidden");foot.classList.remove("hidden")}
+function showLock(msg){
+  main.classList.add("hidden");foot.classList.add("hidden");lock.classList.remove("hidden");
+  document.getElementById("lockTitle").textContent="Not yet!";
+  document.getElementById("lockNote").textContent=msg;
+  lock.classList.remove("shake");void lock.offsetWidth;lock.classList.add("shake");
+}
+function render(){
+  const left=TARGET-Date.now();
+  if(left<=0){if(main.classList.contains("hidden")||!lock.classList.contains("hidden"))reveal();clearInterval(timer);return}
+  const t=Math.floor(left/1000),p=n=>String(n).padStart(2,"0");
+  document.getElementById("d").textContent=Math.floor(t/86400);
+  document.getElementById("h").textContent=p(Math.floor(t%86400/3600));
+  document.getElementById("m").textContent=p(Math.floor(t%3600/60));
+  document.getElementById("s").textContent=p(t%60);
+}
+const timer=setInterval(render,250);render();
 
 const cv=document.getElementById("fx"),cx=cv.getContext("2d");
 let W,H,parts=[],raf=null;
@@ -105,6 +155,7 @@ function tick(){
 
 const gift=document.getElementById("gift");
 gift.addEventListener("click",()=>{
+  if(locked()){showLock("Nice try. Come back when the clock hits zero.");return}
   if(gift.classList.contains("open"))return;
   gift.classList.add("open");
   document.getElementById("hint").style.display="none";
